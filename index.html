@@ -1,0 +1,485 @@
+<html>
+
+<head>
+  <style>
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: #333333;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.column, .column_img {
+    flex: 1;
+    min-width: 100px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.column_img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.column h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+    color: #333333;
+}
+
+.column p {
+    font-size: 1.1em;
+    margin: 10px 0 0;
+    color: #555555;
+}
+
+.contact-form {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+.navbar {
+    background-color: #182848;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #ffffff;
+    color: #182848;
+}
+
+.footer {
+    background-color: #182848;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.footer a:hover {
+    font-weight: 600;
+    color: #182848;
+}
+
+.breadcrumb {
+    background-color: #182848;
+    color: #ffffff;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.breadcrumb-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    opacity: 0.2;
+}
+
+.breadcrumb-content {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.breadcrumb-content h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.custom-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex-shrink: 0;
+    width: 100%;
+    display: block;
+    opacity: 1;
+}
+
+.slide.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.custom-slider img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.custom-slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.custom-slider .prev {
+    left: 10px;
+}
+
+.custom-slider .next {
+    right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .navbar a {
+        padding: 10px;
+    }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class='layout'>
+  <nav class="navbar" id="navbar-2">
+    <a href="#" class="navbar-brand">MobileStore</a>
+    <div class="navbar-toggle" id="navbar-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="navbar-links">
+      <a href="#">Home</a>
+      <a href="#">Phones</a>
+      <a href="#">Tablets</a>
+      <a href="#">Accessories</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <div class="section" id="section-1">
+    <div class="row" id="row-1">
+      <div class="column_img" id="column-1">
+        <div class="custom-slider" id="slider-1">
+          <div class="slides">
+            <div class="slide hidden"><img src="https://picsum.photos/800/400?random=744" alt="Slider Image 1"></div>
+            <div class="slide"><img src="https://picsum.photos/800/400?random=26" alt="Slider Image 2"></div>
+            <div class="slide hidden"><img src="https://picsum.photos/800/400?random=446" alt="Slider Image 3"></div>
+          </div>
+          <button class="prev">❮</button>
+          <button class="next">❯</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="section-2">
+    <div class="row" id="row-2">
+      <div class="column" id="column-3">
+        <h2>About Us</h2>
+        <p>Welcome to MobileStore, your one-stop shop for the latest in mobile technology. Explore our wide range of smartphones, tablets, and accessories designed to meet your needs.</p>
+      </div>
+    </div>
+    <div class="row" id="row-3">
+      <div class="column" id="column-6">
+        <h2>Quality Products</h2>
+        <p>Discover high-quality products from top brands, ensuring performance and reliability with every purchase. We carefully select our inventory to provide you with the best options available.</p>
+      </div>
+      <div class="column" id="column-7">
+        <h2>Customer Satisfaction</h2>
+        <p>We prioritize customer satisfaction above all else. Our dedicated team is here to assist you in finding the perfect device and ensuring your shopping experience is seamless.</p>
+      </div>
+      <div class="column" id="column-8">
+        <h2>Expert Advice</h2>
+        <p>Get expert advice from our knowledgeable staff to make informed decisions. Whether you need assistance with product features or technical specifications, we're here to help.</p>
+      </div>
+      <div class="column" id="column-9">
+        <h2>Visit Us Today</h2>
+        <p>Come visit MobileStore today and experience our commitment to excellence firsthand. We look forward to serving you and exceeding your expectations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="section-3">
+    <div class="row" id="row-4">
+      <div class="column_img" id="column-11"><img src="https://picsum.photos/500/300?random=462" alt="Store Image"></div>
+      <div class="column" id="column-12">
+        <h2>Latest Offerings</h2>
+        <p>Explore our latest offerings and discover the perfect device for your lifestyle. From cutting-edge smartphones to versatile tablets, find everything you need at MobileStore.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="section-4">
+    <div class="row" id="row-5">
+      <div class="breadcrumb">
+        <div class="breadcrumb-bg" style="background-image: url('https://picsum.photos/500/300?random=718');"></div>
+        <div class="breadcrumb-content">
+          <h2>Stay Connected</h2>
+          <p>Stay connected with MobileStore for the latest updates, promotions, and news. Follow us on social media and subscribe to our newsletter to stay informed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="section-5">
+    <div class="row" id="row-6">
+      <div class="column" id="column-15">
+        <h2>Our Commitment</h2>
+        <p>At MobileStore, we are committed to providing you with superior products and exceptional service. Your satisfaction is our priority, and we strive to exceed your expectations.</p>
+      </div>
+    </div>
+    <div class="row" id="row-7">
+      <div class="column" id="column-18">
+        <h2>Join Us Today</h2>
+        <p>Join the MobileStore community today and experience the difference. Shop with confidence knowing you're getting the best products and support available.</p>
+      </div>
+      <div class="column" id="column-19">
+        <h2>Find Your Device</h2>
+        <p>Find the perfect device at MobileStore, tailored to your needs and preferences. Explore our extensive selection and discover new possibilities with every purchase.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="section-6">
+    <div class="row" id="row-8">
+      <div class="column" id="column-20">
+        <h2>Discover More</h2>
+        <p>Discover more about MobileStore and what sets us apart. From our commitment to quality to our dedication to customer service, learn why MobileStore is your ideal choice.</p>
+      </div>
+    </div>
+    <div class="row" id="row-9">
+      <div class="column_img" id="column-21"><img src="https://picsum.photos/500/300?random=682" alt="Store Image"></div>
+      <div class="column_img" id="column-22"><img src="https://picsum.photos/500/300?random=213" alt="Store Image"></div>
+      <div class="column_img" id="column-23"><img src="https://picsum.photos/500/300?random=414" alt="Store Image"></div>
+      <div class="column_img" id="column-24"><img src="https://picsum.photos/500/300?random=502" alt="Store Image"></div>
+    </div>
+  </div>
+
+  <div class="section" id="section-7">
+    <div class="row" id="row-10">
+      <div class="column_img" id="column-25">
+        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.637000459615!2d-122.09019511762375!3d37.422054000077175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sin!4v1718485447674!5m2!1sen!2sin" allowfullscreen=""></iframe>
+      </div>
+      <div class="column contact-form" id="column-26">
+        <form class="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name"><br><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email"><br><br>
+          <label for="message">Message:</label><br>
+          <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+          <button type="button" id="submit-form">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <nav class="footer" id="footer-1">
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <p>© 2024 MobileStore. All rights reserved.</p>
+  </nav>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    const slider = document.querySelector('.custom-slider');
+    const slides = slider.querySelector('.slides');
+    const slideImages = slides.querySelectorAll('.slide');
+    let currentIndex = 0;
+    const intervalTime = 3000;
+    let slideInterval = null;
+
+    function startSlideShow() {
+      slideInterval = setInterval(() => {
+        currentIndex++;
+        showSlide(currentIndex);
+      }, intervalTime);
+    }
+
+    function stopSlideShow() {
+      clearInterval(slideInterval);
+    }
+
+    function showSlide(index) {
+      if (index >= slideImages.length) {
+        currentIndex = 0;
+      } else if (index < 0) {
+        currentIndex = slideImages.length - 1;
+      }
+      for (let i = 0; i < slideImages.length; i++) {
+        if (i === currentIndex) {
+          slideImages[i].classList.remove("hidden");
+        } else {
+          slideImages[i].classList.add("hidden");
+        }
+      }
+    }
+    slider.querySelector(".next").addEventListener("click", () => {
+      stopSlideShow();
+      currentIndex++;
+      if (currentIndex >= slideImages.length) {
+        currentIndex = 0;
+      }
+      showSlide(currentIndex);
+      startSlideShow();
+    });
+    slider.querySelector(".prev").addEventListener("click", () => {
+      stopSlideShow();
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = slideImages.length - 1;
+      }
+      showSlide(currentIndex);
+      startSlideShow();
+    });
+    startSlideShow();
+    slider.addEventListener("mouseenter", stopSlideShow);
+    slider.addEventListener("mouseleave", startSlideShow);
+  </script>
+</body>
+
+</html>
