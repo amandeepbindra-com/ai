@@ -1,124 +1,185 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <style>
-    body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f0f0;
+    /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #f2f2f2;
     margin: 0;
     padding: 0;
     height: 100vh;
-    color: #333333;
+    animation: fadeIn 1s ease-in-out;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Layout Styles */
 .layout {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 10px;
 }
 
 .section {
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 10px;
+    position: relative;
 }
 
-.column, .column_img {
+.column {
     flex: 1;
     min-width: 100px;
     padding: 20px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #333;
+    color: #f2f2f2;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.column_img {
+    flex: 1;
+    min-width: 100px;
+    background-color: #333;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .column_img img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 12px;
 }
 
 .column h2 {
-    font-size: 1.8em;
+    font-size: 1.5em;
     margin-top: 0;
-    color: #333333;
+    color: #ff0000;
 }
 
 .column p {
-    font-size: 1.1em;
-    margin: 10px 0 0;
-    color: #555555;
+    font-size: 1em;
+    margin: 10px 0;
 }
 
+/* Contact Form Styles */
 .contact-form {
     padding: 20px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .contact-form label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: bold;
-    color: #333333;
+    color: #f2f2f2;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 1em;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #222;
+    color: #f2f2f2;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #ff0000;
 }
 
 .contact-form button {
-    background-color: #4CAF50;
+    background-color: #ff0000;
     color: white;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #45a049;
+    background-color: #cc0000;
+    transform: scale(1.05);
 }
 
+/* Navbar Styles */
 .navbar {
-    background-color: #182848;
-    color: #ffffff;
+    background: linear-gradient(90deg, #ff0000, #660000);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 0.5s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .navbar-brand {
-    font-size: 2em;
+    color: #ffffff;
+    font-size: 1.8em;
+    text-decoration: none;
     font-weight: bold;
     letter-spacing: 1px;
-    text-decoration: none;
-    color: #ffffff;
 }
 
 .navbar-links {
@@ -127,58 +188,75 @@
 }
 
 .navbar a {
-    color: #ffffff;
+    color: #f2f2f2;
     text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 8px;
+    padding: 8px 16px;
+    border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .navbar a:hover {
     background-color: #ffffff;
-    color: #182848;
+    color: #ff0000;
 }
 
+/* Footer Styles */
 .footer {
-    background-color: #182848;
-    color: #ffffff;
-    display: flex;
+    background: linear-gradient(90deg, #ff0000, #660000);
+    display: grid;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    position: relative;
     text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .footer p {
+    text-align: center;
+    color: #f2f2f2;
     font-weight: 600;
-    margin: 10px 0;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .footer a {
-    color: #ffffff;
+    color: #f2f2f2;
     text-decoration: none;
     padding: 8px 16px;
-    border-radius: 8px;
+    border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .footer a:hover {
     font-weight: 600;
-    color: #182848;
+    color: #ffffff;
 }
 
+/* Breadcrumb Styles */
 .breadcrumb {
-    background-color: #182848;
-    color: #ffffff;
+    background: linear-gradient(90deg, #ff0000, #660000);
+    position: relative;
     display: inline-block;
     padding: 10px 20px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    position: relative;
+    border-radius: 8px;
+    animation: fadeInLeft 0.5s ease-in-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .breadcrumb-bg {
@@ -202,23 +280,25 @@
 .breadcrumb-content h2 {
     color: #ffffff;
     margin-bottom: 20px;
-    font-size: 2.5em;
 }
 
+/* Slider Styles */
 .custom-slider {
     position: relative;
     width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
 .slides {
+    height: 100%;
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-    flex-shrink: 0;
-    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
     display: block;
     opacity: 1;
 }
@@ -231,7 +311,6 @@
 .custom-slider img {
     width: 100%;
     display: block;
-    border-radius: 12px;
 }
 
 .custom-slider button {
@@ -253,25 +332,42 @@
     right: 10px;
 }
 
-@media screen and (max-width: 768px) {
+/* Media Queries */
+@media screen and (min-width: 350px) and (max-width: 750px) {
     .row {
         flex-direction: column;
-        gap: 15px;
-    }
-
-    .navbar-links {
-        display: none;
+        flex-wrap: nowrap;
     }
 
     .navbar-toggle {
         display: flex;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
     }
 
-    .navbar a {
-        padding: 10px;
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #660000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 99;
+    }
+
+    .navbar-links a {
+        display: flex;
+        padding: 20px;
+        margin: 10px;
+        border-bottom: 1px solid #990000;
+    }
+
+    .navbar-links .active {
+        display: flex;
+    }
+
+    .gmob {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -280,205 +376,136 @@
 
 <body>
   <div class='layout'>
-  <nav class="navbar" id="navbar-2">
-    <a href="#" class="navbar-brand">MobileStore</a>
-    <div class="navbar-toggle" id="navbar-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="navbar-links">
-      <a href="#">Home</a>
-      <a href="#">Phones</a>
-      <a href="#">Tablets</a>
-      <a href="#">Accessories</a>
-      <a href="#">Contact</a>
-    </div>
-  </nav>
-
-  <div class="section" id="section-1">
-    <div class="row" id="row-1">
-      <div class="column_img" id="column-1">
-        <div class="custom-slider" id="slider-1">
-          <div class="slides">
-            <div class="slide hidden"><img src="https://picsum.photos/800/400?random=744" alt="Slider Image 1"></div>
-            <div class="slide"><img src="https://picsum.photos/800/400?random=26" alt="Slider Image 2"></div>
-            <div class="slide hidden"><img src="https://picsum.photos/800/400?random=446" alt="Slider Image 3"></div>
+    <nav class="navbar" id="navbar-1"> <a href="#" class="navbar-brand">BrandName</a>
+      <div class="navbar-toggle" id="navbar-toggle"> <span></span> <span></span> <span></span> </div>
+      <div class="navbar-links" id="navbar-links"> <a href="#">Home</a> <a href="#">About</a> <a href="#">Services</a> <a href="#">News</a> <a href="#">Contact</a> </div>
+    </nav>
+    <div class="section" id="section-1">
+      <div class="row" id="row-1">
+        <div class="column_img" id="column-1">
+          <div class="custom-slider swiper-container swiper-initialized swiper-horizontal swiper-backface-hidden" id="slider-1">
+            <div class="swiper-wrapper" id="swiper-wrapper-ed077939e46aeedb" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-2360px, 0px, 0px); transition-delay: 0ms;">
+              <div class="swiper-slide swiper-slide-next" role="group" aria-label="1 / 3" data-swiper-slide-index="0" style="width: 1180px;"><img src="https://picsum.photos/800/400?random=53" alt="Random Image 1"></div>
+              <div class="swiper-slide swiper-slide-prev" role="group" aria-label="2 / 3" data-swiper-slide-index="1" style="width: 1180px;"><img src="https://picsum.photos/800/400?random=420" alt="Random Image 2"></div>
+              <div class="swiper-slide swiper-slide-active" role="group" aria-label="3 / 3" data-swiper-slide-index="2" style="width: 1180px;"><img src="https://picsum.photos/800/400?random=926" alt="Random Image 3"></div>
+            </div>
+            <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-ed077939e46aeedb"></div>
+            <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-ed077939e46aeedb"></div>
+            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 3" aria-current="true"></span></div> <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
           </div>
-          <button class="prev">❮</button>
-          <button class="next">❯</button>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="section" id="section-2">
-    <div class="row" id="row-2">
-      <div class="column" id="column-3">
-        <h2>About Us</h2>
-        <p>Welcome to MobileStore, your one-stop shop for the latest in mobile technology. Explore our wide range of smartphones, tablets, and accessories designed to meet your needs.</p>
+    <div class="section" id="section-2">
+      <div class="row" id="row-2">
+        <div class="column" id="column-2">
+          <h2>Consectetur Adipiscing</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="row" id="row-3">
+        <div class="column_img" id="column-3"><img src="https://picsum.photos/500/300?random=757" alt="Random Image"></div>
+        <div class="column_img" id="column-4"><img src="https://picsum.photos/500/300?random=478" alt="Random Image"></div>
+        <div class="column_img" id="column-5"><img src="https://picsum.photos/500/300?random=571" alt="Random Image"></div>
+        <div class="column_img" id="column-6"><img src="https://picsum.photos/500/300?random=941" alt="Random Image"></div>
       </div>
     </div>
-    <div class="row" id="row-3">
-      <div class="column" id="column-6">
-        <h2>Quality Products</h2>
-        <p>Discover high-quality products from top brands, ensuring performance and reliability with every purchase. We carefully select our inventory to provide you with the best options available.</p>
+    <div class="section" id="section-3">
+      <div class="row" id="row-4">
+        <div class="column" id="column-7">
+          <h2>Consectetur Adipiscing</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
       </div>
-      <div class="column" id="column-7">
-        <h2>Customer Satisfaction</h2>
-        <p>We prioritize customer satisfaction above all else. Our dedicated team is here to assist you in finding the perfect device and ensuring your shopping experience is seamless.</p>
-      </div>
-      <div class="column" id="column-8">
-        <h2>Expert Advice</h2>
-        <p>Get expert advice from our knowledgeable staff to make informed decisions. Whether you need assistance with product features or technical specifications, we're here to help.</p>
-      </div>
-      <div class="column" id="column-9">
-        <h2>Visit Us Today</h2>
-        <p>Come visit MobileStore today and experience our commitment to excellence firsthand. We look forward to serving you and exceeding your expectations.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="section-3">
-    <div class="row" id="row-4">
-      <div class="column_img" id="column-11"><img src="https://picsum.photos/500/300?random=462" alt="Store Image"></div>
-      <div class="column" id="column-12">
-        <h2>Latest Offerings</h2>
-        <p>Explore our latest offerings and discover the perfect device for your lifestyle. From cutting-edge smartphones to versatile tablets, find everything you need at MobileStore.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="section-4">
-    <div class="row" id="row-5">
-      <div class="breadcrumb">
-        <div class="breadcrumb-bg" style="background-image: url('https://picsum.photos/500/300?random=718');"></div>
-        <div class="breadcrumb-content">
-          <h2>Stay Connected</h2>
-          <p>Stay connected with MobileStore for the latest updates, promotions, and news. Follow us on social media and subscribe to our newsletter to stay informed.</p>
+      <div class="row" id="row-5">
+        <div class="column" id="column-8">
+          <h2>Dolor Sit Amet</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="column" id="column-9">
+          <h2>Elit Sed Do</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
       </div>
     </div>
+    <div class="section" id="section-4">
+      <div class="row" id="row-6">
+        <div class="breadcrumb">
+          <div class="breadcrumb-bg" style="background-image: url('https://picsum.photos/500/300?random=539');"></div>
+          <div class="breadcrumb-content">
+            <h2>Elit Sed Do</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-5">
+      <div class="row" id="row-7">
+        <div class="column" id="column-11">
+          <h2>Consectetur Adipiscing</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="row" id="row-8">
+        <div class="column" id="column-12">
+          <h2>Lorem Ipsum</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="column" id="column-13">
+          <h2>Consectetur Adipiscing</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="column" id="column-14">
+          <h2>Dolor Sit Amet</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-6">
+      <div class="row" id="row-9">
+        <div class="column_img" id="column-16"> <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.637000459615!2d-122.09019511762375!3d37.422054000077175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sin!4v1718485447674!5m2!1sen!2sin" allowfullscreen=""> </iframe> </div>
+        <div class="column contact-form" id="column-17">
+          <form class="contact-form"> <label for="name">Name:</label> <input type="text" id="name" name="name"><br><br> <label for="email">Email:</label> <input type="email" id="email" name="email"><br><br> <label for="message">Message:</label><br> <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br> <button type="button" id="submit-form">Submit</button> </form>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="section-7">
+      <div class="row" id="row-10">
+        <div class="column" id="column-18">
+          <h2>Dolor Sit Amet</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="column_img" id="column-19"><img src="https://picsum.photos/500/300?random=362" alt="Random Image"></div>
+      </div>
+    </div>
+    <nav class="footer" id="footer-1">
+      <div class="footer-links"> <a href="#">Home</a> <a href="#">About</a> <a href="#">News</a> <a href="#">Contact</a> </div>
+      <p>©Year Teasoft Corporation - Html Layout Generator</p>
+    </nav>
   </div>
-
-  <div class="section" id="section-5">
-    <div class="row" id="row-6">
-      <div class="column" id="column-15">
-        <h2>Our Commitment</h2>
-        <p>At MobileStore, we are committed to providing you with superior products and exceptional service. Your satisfaction is our priority, and we strive to exceed your expectations.</p>
-      </div>
-    </div>
-    <div class="row" id="row-7">
-      <div class="column" id="column-18">
-        <h2>Join Us Today</h2>
-        <p>Join the MobileStore community today and experience the difference. Shop with confidence knowing you're getting the best products and support available.</p>
-      </div>
-      <div class="column" id="column-19">
-        <h2>Find Your Device</h2>
-        <p>Find the perfect device at MobileStore, tailored to your needs and preferences. Explore our extensive selection and discover new possibilities with every purchase.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="section-6">
-    <div class="row" id="row-8">
-      <div class="column" id="column-20">
-        <h2>Discover More</h2>
-        <p>Discover more about MobileStore and what sets us apart. From our commitment to quality to our dedication to customer service, learn why MobileStore is your ideal choice.</p>
-      </div>
-    </div>
-    <div class="row" id="row-9">
-      <div class="column_img" id="column-21"><img src="https://picsum.photos/500/300?random=682" alt="Store Image"></div>
-      <div class="column_img" id="column-22"><img src="https://picsum.photos/500/300?random=213" alt="Store Image"></div>
-      <div class="column_img" id="column-23"><img src="https://picsum.photos/500/300?random=414" alt="Store Image"></div>
-      <div class="column_img" id="column-24"><img src="https://picsum.photos/500/300?random=502" alt="Store Image"></div>
-    </div>
-  </div>
-
-  <div class="section" id="section-7">
-    <div class="row" id="row-10">
-      <div class="column_img" id="column-25">
-        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.637000459615!2d-122.09019511762375!3d37.422054000077175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sin!4v1718485447674!5m2!1sen!2sin" allowfullscreen=""></iframe>
-      </div>
-      <div class="column contact-form" id="column-26">
-        <form class="contact-form">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name"><br><br>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email"><br><br>
-          <label for="message">Message:</label><br>
-          <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
-          <button type="button" id="submit-form">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <nav class="footer" id="footer-1">
-    <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </div>
-    <p>© 2024 MobileStore. All rights reserved.</p>
-  </nav>
-</div>
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
-    const slider = document.querySelector('.custom-slider');
-    const slides = slider.querySelector('.slides');
-    const slideImages = slides.querySelectorAll('.slide');
-    let currentIndex = 0;
-    const intervalTime = 3000;
-    let slideInterval = null;
-
-    function startSlideShow() {
-      slideInterval = setInterval(() => {
-        currentIndex++;
-        showSlide(currentIndex);
-      }, intervalTime);
-    }
-
-    function stopSlideShow() {
-      clearInterval(slideInterval);
-    }
-
-    function showSlide(index) {
-      if (index >= slideImages.length) {
-        currentIndex = 0;
-      } else if (index < 0) {
-        currentIndex = slideImages.length - 1;
-      }
-      for (let i = 0; i < slideImages.length; i++) {
-        if (i === currentIndex) {
-          slideImages[i].classList.remove("hidden");
-        } else {
-          slideImages[i].classList.add("hidden");
-        }
-      }
-    }
-    slider.querySelector(".next").addEventListener("click", () => {
-      stopSlideShow();
-      currentIndex++;
-      if (currentIndex >= slideImages.length) {
-        currentIndex = 0;
-      }
-      showSlide(currentIndex);
-      startSlideShow();
+    $(document).ready(function() {
+      $("#navbar-toggle").click(function() {
+        $("#navbar-links").toggle();
+      });
+      const swiper = new Swiper(".custom-slider", {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        slidesPerView: 1,
+      });
     });
-    slider.querySelector(".prev").addEventListener("click", () => {
-      stopSlideShow();
-      currentIndex--;
-      if (currentIndex < 0) {
-        currentIndex = slideImages.length - 1;
-      }
-      showSlide(currentIndex);
-      startSlideShow();
-    });
-    startSlideShow();
-    slider.addEventListener("mouseenter", stopSlideShow);
-    slider.addEventListener("mouseleave", startSlideShow);
   </script>
 </body>
 
